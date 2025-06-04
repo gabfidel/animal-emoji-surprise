@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getRandomAnimal, type Animal } from "@/data/animals";
 import AnimalGrid from "./AnimalGrid";
+import FAQ from "./FAQ";
 
 const AnimalGenerator = () => {
   const [currentAnimal, setCurrentAnimal] = useState<Animal | null>(null);
@@ -86,6 +87,8 @@ const AnimalGenerator = () => {
         )}
 
         <AnimalGrid isVisible={showGrid} />
+        
+        <FAQ />
       </div>
     </div>
   );
