@@ -46,58 +46,43 @@ const AnimalGenerator = () => {
           Click the button below to generate a random animal and learn fascinating facts about creatures from around the world!
         </p>
 
-        {!currentAnimal ? (
-          <Button
-            onClick={handleGenerateAnimal}
-            disabled={isGenerating}
-            className="text-xl px-8 py-6 mb-8 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 transform hover:scale-105 transition-all duration-200 shadow-lg animate-fade-in"
-          >
-            {isGenerating ? (
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                Generating...
+        <Button
+          onClick={currentAnimal ? handleGenerateAnother : handleGenerateAnimal}
+          disabled={isGenerating}
+          className="text-xl px-8 py-6 mb-8 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 transform hover:scale-105 transition-all duration-200 shadow-lg animate-fade-in"
+        >
+          {isGenerating ? (
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              Generating...
+            </div>
+          ) : currentAnimal ? (
+            "🔄 Generate Another Animal"
+          ) : (
+            "🎲 Generate Random Animal"
+          )}
+        </Button>
+
+        {currentAnimal && (
+          <Card className="max-w-2xl mx-auto shadow-2xl animate-scale-in">
+            <CardContent className="p-8">
+              <div className="text-6xl mb-4 animate-fade-in">{currentAnimal.emoji}</div>
+              <h3 className="text-3xl font-bold text-gray-800 mb-4 animate-fade-in">
+                {currentAnimal.name}
+              </h3>
+              <div className="mb-6 animate-fade-in">
+                <img
+                  src={currentAnimal.imageUrl}
+                  alt={currentAnimal.name}
+                  className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-lg"
+                  loading="lazy"
+                />
               </div>
-            ) : (
-              "🎲 Generate Random Animal"
-            )}
-          </Button>
-        ) : (
-          <div className="space-y-6">
-            <Card className="max-w-2xl mx-auto shadow-2xl animate-scale-in">
-              <CardContent className="p-8">
-                <div className="text-6xl mb-4 animate-fade-in">{currentAnimal.emoji}</div>
-                <h3 className="text-3xl font-bold text-gray-800 mb-4 animate-fade-in">
-                  {currentAnimal.name}
-                </h3>
-                <div className="mb-6 animate-fade-in">
-                  <img
-                    src={currentAnimal.imageUrl}
-                    alt={currentAnimal.name}
-                    className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-lg"
-                    loading="lazy"
-                  />
-                </div>
-                <p className="text-lg text-gray-600 leading-relaxed animate-fade-in">
-                  {currentAnimal.fact}
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Button
-              onClick={handleGenerateAnother}
-              disabled={isGenerating}
-              className="text-lg px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-200 shadow-lg"
-            >
-              {isGenerating ? (
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Generating...
-                </div>
-              ) : (
-                "🔄 Generate Another Animal"
-              )}
-            </Button>
-          </div>
+              <p className="text-lg text-gray-600 leading-relaxed animate-fade-in">
+                {currentAnimal.fact}
+              </p>
+            </CardContent>
+          </Card>
         )}
 
         <AnimalGrid isVisible={showGrid} />
