@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getRandomAnimal, type Animal } from "@/data/animals";
+import { trackAnimalGeneration } from "@/utils/analytics";
 import AnimalGrid from "./AnimalGrid";
 import FAQ from "./FAQ";
 
@@ -20,6 +20,9 @@ const AnimalGenerator = () => {
       const animal = getRandomAnimal();
       setCurrentAnimal(animal);
       setIsGenerating(false);
+      
+      // Track animal generation event
+      trackAnimalGeneration(animal.name);
     }, 500);
   };
 
@@ -29,6 +32,9 @@ const AnimalGenerator = () => {
       const animal = getRandomAnimal();
       setCurrentAnimal(animal);
       setIsGenerating(false);
+      
+      // Track animal generation event
+      trackAnimalGeneration(animal.name);
     }, 300);
   };
 
