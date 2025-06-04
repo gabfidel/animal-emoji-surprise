@@ -33,9 +33,9 @@ const AnimalGenerator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center py-16 px-4">
       <div className="text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4 animate-fade-in">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-4 animate-fade-in pt-8">
           🐾 Random Animal Generator
         </h1>
         
@@ -88,7 +88,9 @@ const AnimalGenerator = () => {
 
         <AnimalGrid isVisible={showGrid} />
         
-        <FAQ />
+        <div className="pb-16">
+          <FAQ />
+        </div>
       </div>
     </div>
   );
