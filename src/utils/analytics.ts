@@ -22,7 +22,7 @@ export const trackAnimalGeneration = (animalName: string) => {
 
 export const trackPageView = (pageTitle: string, pagePath: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'GA_MEASUREMENT_ID', {
+    window.gtag('config', 'G-VNYXKF46XN', {
       page_title: pageTitle,
       page_location: window.location.href,
       page_path: pagePath
