@@ -1,0 +1,6 @@
+
+# Serve sitemap.xml directly
+/sitemap.xml /sitemap.xml 200
+
+# Handle client-side routing
+/* /index.html 200
