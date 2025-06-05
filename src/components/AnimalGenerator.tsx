@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -53,25 +54,27 @@ const AnimalGenerator = () => {
           Click the button below to generate a random animal and learn fascinating facts about creatures from around the world!
         </p>
 
-        <Button
-          onClick={currentAnimal ? handleGenerateAnother : handleGenerateAnimal}
-          disabled={isGenerating}
-          className="text-xl px-8 py-6 mb-8 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 transform hover:scale-105 transition-all duration-200 shadow-lg animate-fade-in"
-        >
-          {isGenerating ? (
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              Generating...
-            </div>
-          ) : currentAnimal ? (
-            "🔄 Generate Another Animal"
-          ) : (
-            "🎲 Generate Random Animal"
-          )}
-        </Button>
+        <div className="py-32 mb-32">
+          <Button
+            onClick={currentAnimal ? handleGenerateAnother : handleGenerateAnimal}
+            disabled={isGenerating}
+            className="text-xl px-8 py-6 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 transform hover:scale-105 transition-all duration-200 shadow-lg animate-fade-in"
+          >
+            {isGenerating ? (
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Generating...
+              </div>
+            ) : currentAnimal ? (
+              "🔄 Generate Another Animal"
+            ) : (
+              "🎲 Generate Random Animal"
+            )}
+          </Button>
+        </div>
 
         {currentAnimal && (
-          <Card className="max-w-2xl mx-auto shadow-2xl animate-scale-in">
+          <Card className="max-w-2xl mx-auto shadow-2xl animate-scale-in mb-16">
             <CardContent className="p-8">
               <div className="text-6xl mb-4 animate-fade-in">{currentAnimal.emoji}</div>
               <h3 className="text-3xl font-bold text-gray-800 mb-4 animate-fade-in">
